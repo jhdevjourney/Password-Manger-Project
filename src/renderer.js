@@ -2,7 +2,7 @@
 // This file handles encryption, UI updates, and user interactions
 
 // AES Encryption Library (included via crypto-js in production)
-// For now, we'll use a simple encryption method
+
 
 class PasswordManager {
     constructor() {
