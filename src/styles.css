@@ -1,0 +1,618 @@
+/* styles.css - Password Manager Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #fdfdfd, #d9e2ec);
+    color: #102a43;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== HEADER ==================== */
+.header {
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+    animation: slideDownFade 0.8s ease-out;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    animation: scaleIn 0.6s ease-out 0.3s both;
+}
+
+.header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+    flex: 1;
+    padding: 40px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Add Password Section */
+.add-password-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+}
+
+.add-password-section h2 {
+    color: #1f4d99;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.95em;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #66a6ff;
+    box-shadow: 0 0 0 3px rgba(102, 166, 255, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Password Input Group */
+.password-input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.password-input-group input {
+    flex: 1;
+}
+
+.toggle-password-btn {
+    padding: 12px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.toggle-password-btn:hover {
+    border-color: #667eea;
+    background: #f8f9fa;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    width: 100%;
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    color: white;
+    padding: 14px 24px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(137, 247, 254, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 0.9em;
+}
+
+.btn-delete {
+    background: #ff6b6b;
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.85em;
+    margin-top: 10px;
+}
+
+.btn-delete:hover {
+    background: #ff5252;
+}
+
+.btn-copy {
+    background: #4ecdc4;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.85em;
+    margin-right: 5px;
+}
+
+.btn-copy:hover {
+    background: #45b8af;
+}
+
+/* ==================== PASSWORDS LIST ==================== */
+.passwords-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-header h2 {
+    color: #1f4d99;
+    font-size: 1.5em;
+}
+
+.passwords-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.passwords-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.passwords-list::-webkit-scrollbar-track {
+    background: #e9ecef;
+    border-radius: 10px;
+}
+
+.passwords-list::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.password-item {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #1f4d99;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.5s ease-out;
+}
+
+.password-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.password-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.password-item-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #333;
+}
+
+.password-item-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.password-item-content {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    font-size: 0.95em;
+}
+
+.password-item-content p {
+    margin-bottom: 8px;
+}
+
+.password-item-content strong {
+    color: #1f4d99;
+    min-width: 80px;
+    display: inline-block;
+}
+
+.password-item-content .password-value {
+    font-family: 'Courier New', monospace;
+    background: white;
+    padding: 4px 8px;
+    border-radius: 3px;
+    user-select: none;
+}
+
+.password-item-notes {
+    font-size: 0.9em;
+    color: #6c757d;
+    font-style: italic;
+    margin-top: 10px;
+    padding: 10px;
+    background: #e7f3ff;
+    border-left: 3px solid #0066cc;
+    border-radius: 3px;
+}
+
+.empty-state {
+    text-align: center;
+    color: #6c757d;
+    padding: 40px 20px;
+    font-style: italic;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: #102a43;
+    padding: 20px 30px;
+    border-top: 2px solid #e9ecef;
+    text-align: center;
+    color: white;
+    font-size: 0.9em;
+}
+
+/* ==================== WELCOME SCREEN ==================== */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 0.8s ease-in-out 2s forwards;
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+}
+
+.welcome-icon {
+    font-size: 5rem;
+    animation: bounce 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+.welcome-screen h2 {
+    font-size: 3rem;
+    margin: 20px 0 10px 0;
+    animation: scaleIn 0.6s ease-out;
+}
+
+.welcome-screen p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.loading-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    animation: pulse 1.4s infinite;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    99% {
+        opacity: 0;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* ==================== MAIN CONTAINER ==================== */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .header {
+        padding: 30px 20px;
+    }
+
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .add-password-section,
+    .passwords-section {
+        padding: 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .btn-small {
+        width: 100%;
+    }
+
+    .password-item-actions {
+        flex-wrap: wrap;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+/* Welcome Animations - Trigger on page load */
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Add animations to main sections */
+.main-content {
+    animation: fadeIn 0.6s ease-out 0.4s both;
+}
+
+.add-password-section {
+    animation: slideInLeft 0.8s ease-out 0.5s both;
+}
+
+.passwords-section {
+    animation: slideInRight 0.8s ease-out 0.5s both;
+}
+
+.footer {
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+/* Hovering animations */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 166, 255, 0.3);
+}
+
+/* Input focus animation */
+.form-group input,
+.form-group textarea {
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    transform: scale(1.02);
+}
+
+/* Password item hover animation */
+.password-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(31, 77, 153, 0.15);
+}
+
+/* Success message animation */
+.success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: slideInRight 0.4s ease;
+    z-index: 1000;
+}
+
+.success-message.hidden {
+    animation: slideInRight 0.4s ease reverse;
+    display: none;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.password-item {
+    animation: slideIn 0.3s ease;
+}
