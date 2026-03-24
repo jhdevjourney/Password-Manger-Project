@@ -1,98 +1,105 @@
-# Password Manager - Desktop Application
+# Password Manager Project
 
-A secure, local password manager desktop application built with **Electron**, **HTML/CSS**, and **JavaScript**.
+## Overview
+
+This project is a basic password manager application developed as a learning exercise. It provides a foundational structure for securely storing and retrieving credentials, and is intended as a starting point for further development and experimentation.
+
+The main goal of this project was to explore concepts such as application structure, data handling, and basic encryption mechanisms using modern development tools.
+
+## Disclaimer
+
+This project is **not intended for production use** and should not be used to store real or sensitive credentials. It has not been audited for security and does not implement industry-standard cryptographic practices.
 
 ## Features
 
-- **Secure Password Storage** - Passwords encrypted and stored locally on your device
-- **Beautiful UI** - Modern, responsive interface with smooth animations
-- **No Cloud** - All data stays on YOUR computer—no servers, no internet required
-- **Portable** - Download and run immediately, no installation needed
-- **Easy to Use** - Simple and intuitive design
-- **Open Source** - View the source code on GitHub
+* Add and store credentials (e.g., website, username, password)
+* Basic encryption and decryption of stored data
+* Simple and extendable project structure
+* Local data storage
 
-## What This App Does
+## Technologies Used
 
-- Add Passwords - Save passwords with service name, username, and notes
-- View Passwords - See all your saved passwords in one place (toggle visibility)
-- Copy to Clipboard - Quickly copy passwords with one click
-- Delete Passwords - Remove passwords you no longer need
-- Encrypt Data - Passwords are encrypted before storage for security
-- No Internet - Works completely offline
-
-## Quick Start
-
-### Download & Run (No Installation)
-1. Download `PasswordManager.zip`
-2. Extract it
-3. Double-click `RUN_PASSWORD_MANAGER.bat` or `Password Manager.exe`
-4. Start saving passwords!
-
-### For Developers
-
-```bash
-# Install dependencies
-npm install
-
-# Run in development
-npm start
-
-# Build executable
-npm run build
-```
+* JavaScript
+* Node.js
+* Electron
+* JSON for local data storage
 
 ## Project Structure
 
 ```
-password-manager/
-├── main.js          # Electron backend
-├── preload.js       # Security layer
-├── package.json     # Dependencies
-├── src/
-│   ├── index.html   # UI
-│   ├── styles.css   # Design
-│   └── renderer.js  # Password logic & encryption
-├── README.md
-└── .gitignore
+/project-root
+  ├── main.js        # Application entry point
+  ├── renderer.js    # Frontend logic
+  ├── index.html     # User interface
+  ├── storage/       # Local data storage
+  └── utils/         # Helper functions (e.g., encryption)
 ```
 
 ## How It Works
 
-1. User adds password - Enters service, username, password
-2. Password encrypted - Secured before saving
-3. Stored locally - Saved to `AppData\Roaming\password-manager\`
-4. User views password - Can toggle visibility or copy to clipboard
-5. All offline - No internet or cloud services needed
+The application uses a master password to encrypt and decrypt stored credentials. Data is saved locally in an encrypted format and can be accessed through the user interface.
 
-## Data Storage
+At a high level:
 
-- Windows: `C:\Users\YourName\AppData\Roaming\password-manager\passwords.json`
-- No data leaves your device - Everything stays local
+1. The user enters a master password
+2. Credentials are encrypted before being stored
+3. Stored data is decrypted when accessed
 
-## Technologies Used
+## Limitations
 
-- Electron - Desktop app framework
-- JavaScript (ES6+) - Core logic
-- HTML5 - User interface
-- CSS3 - Styling & animations
-- Node.js - Development
+* No secure key derivation (e.g., Argon2, PBKDF2)
+* No authentication mechanisms beyond basic password usage
+* No protection against brute-force or memory-based attacks
+* Encryption implementation is simplified and not production-ready
 
-## System Requirements
+## Learning Objectives
 
-- Windows 10 or later (64-bit)
-- ~180 MB free space
-- No additional software needed
+This project helped to understand:
 
-## Security
+* The architecture of desktop applications using Electron
+* Basic principles of encryption and data protection
+* Structuring a small-scale application
+* Working with local file storage
 
-- Passwords encrypted before storage
-- No cloud or internet required
-- No account creation
-- No tracking or analytics
-- All code open source for verification
+## Future Improvements
+
+* Implement secure key derivation (e.g., Argon2 or PBKDF2)
+* Use authenticated encryption (e.g., AES-256-GCM)
+* Add auto-lock and session management
+* Improve error handling and input validation
+* Enhance UI/UX
+* Introduce secure storage mechanisms
+
+## Getting Started
+
+### Prerequisites
+
+* Node.js installed
+
+### Installation
+
+```
+git clone <repository-url>
+cd password-manager-project
+npm install
+```
+
+### Run the Application
+
+```
+npm start
+```
+
+## Motivation
+
+This project was created to experiment with building a real-world application from scratch and to provide a simple foundation that others can extend without needing to set up the initial structure.
+
+## License
+
+This project is open-source and available under the MIT License.
 
 ---
 
-Built by: JH DevJourney
+Built by: JHDevJourney
 License: MIT
 Status: Production Ready
